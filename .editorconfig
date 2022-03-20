@@ -1,0 +1,18 @@
+# editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*.{cs,json,csproj}]
+charset = utf-8
+end_of_line = crlf
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_size = 4
+csharp_style_namespace_declarations=file_scoped:suggestion
+
+[*.{json,csproj,targets}]
+indent_size = 2

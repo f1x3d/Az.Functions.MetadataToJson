@@ -1,0 +1,13 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <_FunctionsMetadataToJsonAssemblyPath>$(MSBuildThisFileDirectory)..\tools\netstandard2.0\Az.Functions.MetadataToJson.dll</_FunctionsMetadataToJsonAssemblyPath>
+  </PropertyGroup>
+
+  <UsingTask TaskName="Az.Functions.MetadataToJson.FunctionsMetadataToJson" AssemblyFile="$(_FunctionsMetadataToJsonAssemblyPath)"/>
+
+  <Target Name="_FunctionsPostPostBuild" AfterTargets="_FunctionsPostBuild">
+    <FunctionsMetadataToJson OutputDirectory="$(TargetDir)" />
+  </Target>
+
+</Project>

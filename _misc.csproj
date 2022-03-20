@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.Build.NoTargets/3.3.0">
+
+  <!-- https://github.com/microsoft/MSBuildSdks/tree/main/src/NoTargets -->
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".git/**;.vs/**;obj/**;*.sln;_misc.csproj;Az.Functions.MetadataToJson/**" />
+  </ItemGroup>
+
+</Project>

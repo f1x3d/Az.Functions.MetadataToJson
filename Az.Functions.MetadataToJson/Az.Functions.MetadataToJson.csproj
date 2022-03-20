@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Az.Functions.MetadataToJson</PackageId>
+    <AssemblyName>$(PackageId)</AssemblyName>
+    <RootNamespace>$(PackageId)</RootNamespace>
+    <Description>This package converts the 'functions.metadata' file, generated for 'dotnet-isolated' Azure Function worker runtime, into multiple 'function.json' files, similarly to what is generated for in-process 'dotnet' worker runtime.
+
+It can be used as a workaround until 'func kubernetes deploy' supports the isolated .NET worker runtime.
+See https://github.com/Azure/azure-functions-dotnet-worker/issues/747</Description>
+    <PackageTags>azure function func metadata json kubernetes keda deploy dotnet isolated</PackageTags>
+
+    <Version>1.0.0</Version>
+    <FileVersion>$(Version)</FileVersion>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+
+    <Authors>Oleksandr Manyk</Authors>
+    <Copyright>Copyright © Oleksandr Manyk 2022</Copyright>
+    <RepositoryUrl>https://github.com/f1x3d/Az.Functions.MetadataToJson</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/f1x3d/Az.Functions.MetadataToJson</PackageProjectUrl>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.1.0" />
+    <PackageReference Include="System.Text.Json" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(PackageId).targets">
+      <Pack>true</Pack>
+      <PackagePath>build</PackagePath>
+    </None>
+    <None Include="../README.md">
+      <Pack>true</Pack>
+      <PackagePath>/</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PackTaskDependencies" BeforeTargets="GenerateNuspec">
+    <ItemGroup>
+      <_PackageFiles Include="$(OutputPath)/*.dll">
+        <PackagePath>tools/netstandard2.0</PackagePath>
+        <BuildAction>None</BuildAction>
+        <Visible>false</Visible>
+      </_PackageFiles>
+    </ItemGroup>
+  </Target>
+
+</Project>
