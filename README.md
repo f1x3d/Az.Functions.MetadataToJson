@@ -26,4 +26,4 @@ Add a reference to this package in your Azure Functions project:
 </ItemGroup>
 ```
 
-After that, the `func kubernetes deploy --dotnet-isolated` should work as expected.
+After that, the `func kubernetes deploy --csharp` should work as expected.
