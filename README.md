@@ -22,7 +22,7 @@ Add a reference to this package in your Azure Functions project:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Az.Functions.MetadataToJson" Version="1.0.0" />
+  <PackageReference Include="Az.Functions.MetadataToJson" Version="1.0.1" />
 </ItemGroup>
 ```
 
