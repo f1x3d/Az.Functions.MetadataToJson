@@ -15,7 +15,7 @@
     <Description>This package converts the 'functions.metadata' file, generated for 'dotnet-isolated' Azure Function worker runtime, into multiple 'function.json' files, similarly to what is generated for in-process 'dotnet' worker runtime.
 
 It can be used as a workaround until 'func kubernetes deploy' supports the isolated .NET worker runtime.
-See https://github.com/Azure/azure-functions-dotnet-worker/issues/747</Description>
+See https://github.com/Azure/azure-functions-core-tools/issues/2825</Description>
     <PackageTags>azure function func metadata json kubernetes keda deploy dotnet isolated</PackageTags>
 
     <Version>1.0.0</Version>
